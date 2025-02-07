@@ -33,12 +33,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         try {
-           
             const expression = display.value;
             const result = eval(expression.replace("^", "**"));
-            
             addToHistory(expression, result);
-            
             display.value = result;
         } catch (error) {
             display.value = "Ошибка";
@@ -48,11 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function addToHistory(expression, result) {
         const history = getHistory();
         history.push({ expression, result });
-
-        
         localStorage.setItem('history', JSON.stringify(history));
-
-        
         const listItem = document.createElement("li");
         listItem.textContent = `${expression} = ${result}`;
         historyList.appendChild(listItem);
@@ -76,6 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
         historyList.innerHTML = ""; 
         localStorage.removeItem('history'); 
     }
+    
     window.insert = insert;
     window.clearDisplay = clearDisplay;
     window.deleteLast = deleteLast;
