@@ -1,11 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="description" content="Калькулятор МИРЭА — удобный онлайн-калькулятор с возможностью вычисления степеней и хранения истории расчетов">
+    <meta name="keywords" content="калькулятор, онлайн-калькулятор, калькулятор МИРЭА, математические вычисления">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="МИРЭА">
+    <meta property="og:title" content="Калькулятор МИРЭА — онлайн-вычисления">
+    <meta property="og:description" content="Используйте калькулятор МИРЭА для удобных и быстрых математических расчетов. Поддержка степеней и истории вычислений">
+    
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="images/android-chrome-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+
+    <title>Калькулятор МИРЭА</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header>
+        <h1>Калькулятор МИРЭА</h1>
+    </header>
     
+    <main>
+        <section class="calculator-section">
+            <div class="calculator">
+                <input type="text" id="display" disabled aria-label="Дисплей калькулятора">
+                <div class="buttons">
+                    <button class="operator" onclick="clearDisplay()">C</button>
+                    <button class="operator" onclick="deleteLast()">⌫</button>
+                    <button class="operator" onclick="insert('^')">^</button>
+                    <button class="operator" onclick="insert('/')">/</button>
+                    
+                    <button onclick="insert('7')">7</button>
+                    <button onclick="insert('8')">8</button>
+                    <button onclick="insert('9')">9</button>
+                    <button class="operator" onclick="insert('*')">*</button>
+                    
+                    <button onclick="insert('4')">4</button>
+                    <button onclick="insert('5')">5</button>
+                    <button onclick="insert('6')">6</button>
+                    <button class="operator" onclick="insert('-')">-</button>
+                    
+                    <button onclick="insert('1')">1</button>
+                    <button onclick="insert('2')">2</button>
+                    <button onclick="insert('3')">3</button>
+                    <button class="operator" onclick="insert('+')">+</button>
+                    
+                    <button onclick="insert('0')">0</button>
+                    <button onclick="insert('.')">.</button>
+                    <button class="equals" onclick="calculate()">=</button>
+                </div>
+            </div>
+        </section>
+        
+        <section class="history">
+            <h2>История вычислений</h2>
+            <ul id="history-list"></ul>
+            <button class="clear-history" onclick="clearHistory()">Очистить историю</button>
+        </section>
+    </main>
+    <script src="script.js"></script>
 </body>
 </html>
