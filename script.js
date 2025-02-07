@@ -49,16 +49,15 @@ document.addEventListener("DOMContentLoaded", function () {
         const history = getHistory();
         history.push({ expression, result });
 
-        // Сохраняем обновленную историю в localStorage
+        
         localStorage.setItem('history', JSON.stringify(history));
 
-        // Добавляем новый элемент в список истории
+        
         const listItem = document.createElement("li");
         listItem.textContent = `${expression} = ${result}`;
         historyList.appendChild(listItem);
     }
 
-    // Функция для получения истории из localStorage
     function getHistory() {
         const history = localStorage.getItem('history');
         return history ? JSON.parse(history) : [];
